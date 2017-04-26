@@ -18,7 +18,7 @@
       <tr>
         <td>Item Type</td>
 				<td>
-					<select id="id_item_type">
+					<select id="id_item_type" name="n_item_type">
 						<option value="Eat" selected="true">Eat</option>
 						<option value="Life">Life</option>
 						<option value="Traffic">Traffic</option>
@@ -30,15 +30,15 @@
       </tr>
       <tr>
         <td>Item Price</td>
-        <td><input type="number" name="n_item_price"></td>
+        <td><input id="id_item_price" type="number" name="n_item_price" onchange="caculateTotalCost()"></td>
       </tr>
       <tr>
         <td>Amount</td>
-        <td><input type="number" name="n_item_amount"></td>
+        <td><input id="id_amount" type="number" name="n_item_amount" onchange="caculateTotalCost()"></td>
       </tr>
       <tr>
-        <td>Payment Cost</td>
-        <td><input type="number" name="n_payment_cost"></td>
+        <td>Total Cost</td>
+        <td><input id="id_total_cost" type="number" name="n_total_cost" onfocus="caculateTotalCost()"></td>
       </tr>
       <tr>
         <td><button type="submit" name="button">Submit</button></td>
