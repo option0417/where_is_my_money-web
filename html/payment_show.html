@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment Management</title>
+
+  <!-- Bootstrap core CSS -->
+  <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
+  <link rel="stylesheet" type="text/css" href="../css/payment.css">
+	<script type="text/javascript" charset="utf-8" src="../js/payment.js"></script>
+<head>
+<body>
+  <nav class="nav-sidebar-menu">
+		<ul class="ul-sidebar-menu">
+			<li><a href="./payment_add.html">Add Payment</a></li>
+			<li><a href="#">Show Payment</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+	</nav>
+
+  <section>
+    <div class="container">
+      <div class="title"><h3> Show Payment </h3></div>
+			<input type="button" value="Show all"/>
+			<input type="button" value="Show by type"/>
+			<input type="button" value="Show by time"/>
+    </div>
+
+		<table hidden="true">
+			<tr><td>Item Name</td>	<td><input type="text" readonly="true"/></tr>
+			<tr><td>Item Type</td>	<td><input type="text" readonly="true"/></tr>
+			<tr><td>Item Price</td>	<td><input type="text" readonly="true"/></tr>
+			<tr><td>Amount</td>			<td><input type="text" readonly="true"/><tr>
+			<tr><td>Total Cost</td>	<td><input type="text" readonly="true"/></tr>
+		</table>
+
+
+  </section>
+
+	<footer>
+		Author: W.D
+	</footer>
+<body>
+</html>

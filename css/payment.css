@@ -1,0 +1,59 @@
+nav {
+    top: 0;
+    left: 0;
+    height: 95%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    background-color: #EEE;
+    overflow-x: hidden;
+    padding-top: 0px; 
+    transition: 0.5s;
+}
+
+ul {
+    padding-left: 2rem; 
+    list-style-type: none;
+    line-height: 2;
+    text-shadow: 3px 3px 6px black;
+    letter-spacing: 1px;
+    text-align: left;
+  
+}
+
+li {
+    margin-top: 5%;
+}
+
+a:link {
+    text-decoration: none;
+    color: black; 
+}
+
+section {
+    top:0;
+    left: 20%;
+    height: 95%;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    z-index: 1;
+    background-color: #EEE;
+}
+
+.container {
+    line-height: 1;
+    text-align: justify;
+    text-shadow: 3px 3px 6px black;
+    letter-spacing: 1px;  
+}
+
+footer {
+    top: 95%;
+    left: 0;
+    height: 5%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #EEE;
+}
