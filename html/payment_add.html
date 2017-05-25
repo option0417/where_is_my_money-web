@@ -26,12 +26,12 @@
       <table>
         <tr>
           <td>Item Name</td>
-          <td><input type="text" name="n_item_name"></td>
+          <td><input type="text" name="item_name"></td>
         </tr>
         <tr>
           <td>Item Type</td>
   				<td>
-  					<select id="id_item_type" name="n_item_type">
+  					<select id="id_item_type" name="item_type">
   						<option value="Eat" selected="true">Eat</option>
   						<option value="Life">Life</option>
   						<option value="Traffic">Traffic</option>
@@ -43,18 +43,18 @@
         </tr>
         <tr>
           <td>Item Price</td>
-          <td><input id="id_item_price" type="number" name="n_item_price" onchange="caculateTotalCost()"></td>
+          <td><input id="id_item_price" type="number" name="item_price" onchange="caculateTotalCost()"></td>
         </tr>
         <tr>
           <td>Amount</td>
-          <td><input id="id_amount" type="number" name="n_item_amount" onchange="caculateTotalCost()"></td>
+          <td><input id="id_amount" type="number" name="item_amount" onchange="caculateTotalCost()"></td>
         </tr>
         <tr>
           <td>Total Cost</td>
-          <td><input id="id_total_cost" type="number" name="n_total_cost" onfocus="caculateTotalCost()"></td>
+          <td><input id="id_total_cost" type="number" name="total_cost" onfocus="caculateTotalCost()"></td>
         </tr>
         <tr>
-          <td><button type="submit" name="button">Submit</button></td>
+          <td><button type="submit" name="btn_add_submit">Submit</button></td>
         </tr>
       </table>
       </form>
