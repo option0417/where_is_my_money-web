@@ -8,7 +8,7 @@
   <!-- Bootstrap core CSS -->
   <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
   <link rel="stylesheet" type="text/css" href="../css/payment.css">
-	<script type="text/javascript" charset="utf-8" src="../js/payment_show.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/payment_show.css">
 <head>
 <body>
   <nav class="nav-sidebar-menu">
@@ -27,13 +27,19 @@
 			<input id="id_btn_show_by_time" type="button" value="Show by time"/>
     </div>
 
-		<table hidden="true">
-			<tr><td>Item Name</td>	<td><input type="text" readonly="true"/></tr>
-			<tr><td>Item Type</td>	<td><input type="text" readonly="true"/></tr>
-			<tr><td>Item Price</td>	<td><input type="text" readonly="true"/></tr>
-			<tr><td>Amount</td>			<td><input type="text" readonly="true"/><tr>
-			<tr><td>Total Cost</td>	<td><input type="text" readonly="true"/></tr>
+		<table class="result_table" id="id_result_table" hidden="true">
+			<thead>
+				<tr>
+					<th>Item Name</th>
+					<th>Payment Type</th>
+					<th>Item Price</th>
+					<th>Amount</th>
+					<th>Payment Cost</th>
+				</tr>
+			</thead>
+			<tbody/>
 		</table>
+
 
 
   </section>
@@ -41,5 +47,6 @@
 	<footer>
 		Author: W.D
 	</footer>
+	<script type="text/javascript" charset="utf-8" src="../js/payment_show.js"></script>
 <body>
 </html>

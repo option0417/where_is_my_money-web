@@ -21,23 +21,52 @@ function showBtn(event) {
 }
 
 function showAll(event) {
-  console.log("Show all");
+	console.log("Show all");
 
 	httpReq = new XMLHttpRequest();
-
-	httpReq.onreadystatechange = showResponse;
+	httpReq.onreadystatechange = showResponseAll;
 	httpReq.open("Get", "http://192.168.100.101:3000/record",  true);
 	httpReq.send();
-
-
 }
 
-function showResponse() {
+function showResponseAll() {
 	if (httpReq.readyState === XMLHttpRequest.DONE) {
 		if (httpReq.status === 200) {
-			alert(httpReq.responseText);
+			console.log(httpReq.response);
+
+			var jsonResp = JSON.parse(httpReq.responseText);
+			cleanPage();
+
+			for (var idx = 0; idx < jsonResp.length; idx++) {
+				var jsonObj = jsonResp[idx];
+				console.log(jsonObj);
+				setPageContent(jsonObj);
+			}
 		} else {
 			alert('There was a problem with the request.');
 		}
 	}
+}
+
+function cleanPage() {
+	resultTable = document.getElementById('id_result_table');
+	resultTable.getElementsByTagName('tbody')[0].innerHTML ='';
+}
+
+function setPageContent(jsonObj) {
+	resultTable = document.getElementById('id_result_table');
+	console.log(resultTable);
+	var content = 
+		'<tr>' + 
+		'<td>' + jsonObj.item_name + '</td>' +
+		'<td>' + jsonObj.payment_type + '</td>' +
+		'<td>' + jsonObj.item_price + '</td>' +
+		'<td>' + jsonObj.amount + '</td>' +
+		'<td>' + jsonObj.payment_cost + '</td>' +
+		'</tr>';
+
+	resultTable.getElementsByTagName('tbody')[0].innerHTML += content;
+
+	resultTable.hidden = false;
+	resultTable.board = 1;
 }

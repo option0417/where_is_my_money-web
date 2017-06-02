@@ -1,0 +1,15 @@
+.result_table {
+  border: 2px solid black;
+  border-radius: 10px;
+  table-layout: fixed;
+	width: 60%;
+}
+
+thead th {
+  letter-spacing: 1px;
+	  text-align: left;
+}
+
+tbody td {
+  letter-spacing: 1px;
+}
