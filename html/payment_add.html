@@ -8,6 +8,7 @@
   <!-- Bootstrap core CSS -->
   <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
   <link rel="stylesheet" type="text/css" href="../css/payment.css">
+	<link rel="stylesheet" type="text/css" href="../css/payment_add.css">
 	<script type="text/javascript" charset="utf-8" src="../js/payment_add.js"></script>
 <head>
 <body>
@@ -44,15 +45,15 @@
         </tr>
         <tr>
           <td>Item Price</td>
-          <td><input id="id_item_price" type="number" name="item_price" onchange="caculateTotalCost()" required></td>
+          <td><input id="id_item_price" type="number" name="item_price" min="1" required></td>
         </tr>
         <tr>
           <td>Amount</td>
-          <td><input id="id_amount" type="number" name="amount" onchange="caculateTotalCost()" required></td>
+          <td><input id="id_amount" type="number" name="amount" min="1" required></td>
         </tr>
         <tr>
           <td>Total Cost</td>
-          <td><input id="id_total_cost" type="number" name="payment_cost" onfocus="caculateTotalCost()"></td>
+          <td><input id="id_total_cost" type="number" name="payment_cost" readonly></td>
         </tr>
         <tr>
           <td><button id="id_btn_submit" type="submit">Submit</button></td>
