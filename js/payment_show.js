@@ -10,8 +10,22 @@ function pageload() {
 			
 	btn_show_all.onclick = showAll;
   btn_show_by_type.addEventListener("click", showBtn);
+	setupSelectPaymentType();
 }
 window.onload = pageload;
+
+function setupSelectPaymentType() {
+	selectPaymentType = document.getElementById("id_select_type");
+
+	for (var pKey in PaymentType) {
+		var eOption = document.createElement("option");
+		eOption.text = pKey;
+		eOption.value = PaymentType[pKey]; 
+		selectPaymentType.add(eOption);
+	}
+
+	selectPaymentType.hidden = false;
+}
 
 function showBtn(event) {
 	console.log(event);
@@ -44,26 +58,26 @@ function showResponseAll() {
 				refreshPageContent(appendContent);
 			}
 		} else {
-			alert('There was a problem with the request.');
+			alert("There was a problem with the request.");
 		}
 	}
 }
 
 function createContent(jsonObj) {
 	var content = 
-		'<tr>' + 
-		'<td>' + jsonObj.item_name + '</td>' +
-		'<td>' + jsonObj.payment_type + '</td>' +
-		'<td>' + jsonObj.item_price + '</td>' +
-		'<td>' + jsonObj.amount + '</td>' +
-		'<td>' + jsonObj.payment_cost + '</td>' +
-		'</tr>';
+		"<tr>" + 
+		"<td>" + jsonObj.item_name + "</td>" +
+		"<td>" + jsonObj.payment_type + "</td>" +
+		"<td>" + jsonObj.item_price + "</td>" +
+		"<td>" + jsonObj.amount + "</td>" +
+		"<td>" + jsonObj.payment_cost + "</td>" +
+		"</tr>";
 	return content;
 }
 
 function refreshPageContent(pageContent) {
-	resultTable = document.getElementById('id_result_table');
-	resultTable.getElementsByTagName('tbody')[0].innerHTML = pageContent;
+	resultTable = document.getElementById("id_result_table");
+	resultTable.getElementsByTagName("tbody")[0].innerHTML = pageContent;
 	resultTable.hidden = false;
 	resultTable.board = 1;
 }
