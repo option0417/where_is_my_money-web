@@ -17,6 +17,7 @@ function pageload() {
 	eAmount.onchange = caculateTotalCost;
 	eTotalCost.onfocus = caculateTotalCost;
 	eFormPayment.onsubmit = submitPayment;
+	setupPaymentType();
 }
 
 window.onload = pageload;
@@ -50,4 +51,18 @@ function convertFormDataToJson(eForm) {
 
 	json = json.substring(0,  json.length - 1) + "}";
 	return json;
+}
+
+function setupPaymentType() {
+	var selectPaymentType = document.getElementById("id_payment_type");
+
+		for (var pKey in PaymentType) {
+			if (typeof PaymentType[pKey] !== 'function') {
+			  var eOption = document.createElement("option");
+			  eOption.text = pKey;
+			  eOption.value = PaymentType[pKey]; 
+			
+			  selectPaymentType.add(eOption);
+			}
+		}
 }

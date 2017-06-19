@@ -1,6 +1,7 @@
 var btn_show_all;
 var btn_show_by_type;
 var btn_show_by_time;
+var select_PaymentType;
 var httpReq;
 
 function pageload() {
@@ -9,57 +10,69 @@ function pageload() {
 	btn_show_by_time = document.getElementById("id_btn_show_by_time");
 			
 	btn_show_all.onclick = showAll;
-  btn_show_by_type.addEventListener("click", showBtn);
+  btn_show_by_type.addEventListener("click", showByType);
 	setupSelectPaymentType();
 }
 window.onload = pageload;
 
 function setupSelectPaymentType() {
-	selectPaymentType = document.getElementById("id_select_type");
+	select_PaymentType = document.getElementById("id_select_type");
 
 	for (var pKey in PaymentType) {
-		var eOption = document.createElement("option");
-		eOption.text = pKey;
-		eOption.value = PaymentType[pKey]; 
-		selectPaymentType.add(eOption);
+		if (typeof PaymentType[pKey] !== "function") {	
+		  var eOption = document.createElement("option");
+		  eOption.text = pKey;
+		  eOption.value = PaymentType[pKey]; 
+		  select_PaymentType.add(eOption);
+		}
 	}
 
-	selectPaymentType.hidden = false;
-}
-
-function showBtn(event) {
-	console.log(event);
-	console.log(event.target);
-	console.log(event.target.id);
+	select_PaymentType.hidden = false;
 }
 
 function showAll(event) {
 	console.log("Show all");
 
-	httpReq = new XMLHttpRequest();
-	httpReq.onreadystatechange = showResponseAll;
-	httpReq.open("Get", "http://192.168.100.101:3000/record",  true);
-	httpReq.send();
+	var queryString = "tp" + "=" + select_PaymentType.value;
+	var url = TARGET_URL + "/" + SERVICE_RECORD;
+	sendXhr("Get", url);
 }
 
-function showResponseAll() {
-	if (httpReq.readyState === XMLHttpRequest.DONE) {
-		if (httpReq.status === 200) {
-			console.log(httpReq.response);
+function showByType(event) {
+	console.log(event);
+	console.log(event.target);
+	console.log(event.target.id);
 
-			var jsonResp = JSON.parse(httpReq.responseText);
-			var appendContent ='';
-			for (var idx = 0; idx < jsonResp.length; idx++) {
-				var jsonObj = jsonResp[idx];
-				appendContent += createContent(jsonObj);
-			}
+	var queryString = "tp" + "=" + select_PaymentType.value;
+	var url = TARGET_URL + "/" + SERVICE_RECORD + "/" + "?" + queryString;
+	sendXhr("Get", url);
+}
 
-			if (appendContent.length > 0) {
-				refreshPageContent(appendContent);
-			}
-		} else {
-			alert("There was a problem with the request.");
+function sendXhr(method, url) {
+	var xhr = new XMLHttpRequest();
+	xhr.open(method, url, true);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200) {
+			  var respJson = JSON.parse(xhr.responseText);
+				setupResultTable(respJson);
+		  } else {
+			  alert("There was a problem with the request.");
+		  }
 		}
+	}
+	xhr.send();
+}
+
+function setupResultTable(respJson) {
+	var appendContent ='';
+	for (var idx = 0; idx < respJson.length; idx++) {
+	  var jsonObj = respJson[idx];
+		appendContent += createContent(jsonObj);
+	}
+
+	if (appendContent.length > 0) {
+		refreshPageContent(appendContent);
 	}
 }
 

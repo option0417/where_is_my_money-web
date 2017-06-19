@@ -9,7 +9,6 @@
   <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
   <link rel="stylesheet" type="text/css" href="../css/payment.css">
 	<link rel="stylesheet" type="text/css" href="../css/payment_add.css">
-	<script type="text/javascript" charset="utf-8" src="../js/payment_add.js"></script>
 <head>
 <body>
   <nav class="nav-sidebar-menu">
@@ -31,17 +30,9 @@
           <td><input type="text" name="item_name" required></td>
         </tr>
         <tr>
-          <td>Item Type</td>
+          <td>Payment Type</td>
   				<td>
-  					<select id="id_item_type" name="payment_type" required>
-  						<option value="Eat" selected="true">Eat</option>
-  						<option value="Life">Life</option>
-  						<option value="Traffic">Traffic</option>
-  						<option value="Dress">Dress</option>
-  						<option value="Investment">Investment</option>
-  						<option value="Medical">Medical</option>
-  						<option value="Others">Others</option>
-  				 </select>
+  					<select id="id_payment_type" name="payment_type" required/>
         </tr>
         <tr>
           <td>Item Price</td>
@@ -67,6 +58,7 @@
 		Author: W.D
 	</footer>
 
-
+	<script type="text/javascript" charset="utf-8" src="../js/payment_add.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/payment_common.js"></script>
 <body>
 </html>
