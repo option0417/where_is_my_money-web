@@ -31,18 +31,12 @@ function setupSelectPaymentType() {
 }
 
 function showAll(event) {
-	console.log("Show all");
-
 	var queryString = "tp" + "=" + select_PaymentType.value;
 	var url = TARGET_URL + "/" + SERVICE_RECORD;
 	sendXhr("Get", url);
 }
 
 function showByType(event) {
-	console.log(event);
-	console.log(event.target);
-	console.log(event.target.id);
-
 	var queryString = "tp" + "=" + select_PaymentType.value;
 	var url = TARGET_URL + "/" + SERVICE_RECORD + "/" + "?" + queryString;
 	sendXhr("Get", url);
@@ -80,7 +74,7 @@ function createContent(jsonObj) {
 	var content = 
 		"<tr>" + 
 		"<td>" + jsonObj.item_name + "</td>" +
-		"<td>" + jsonObj.payment_type + "</td>" +
+		"<td>" + PaymentType.getText(jsonObj.payment_type) + "</td>" +
 		"<td>" + jsonObj.item_price + "</td>" +
 		"<td>" + jsonObj.amount + "</td>" +
 		"<td>" + jsonObj.payment_cost + "</td>" +
