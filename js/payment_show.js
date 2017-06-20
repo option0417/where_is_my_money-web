@@ -2,6 +2,8 @@ var btn_show_all;
 var btn_show_by_type;
 var btn_show_by_time;
 var select_PaymentType;
+var input_startDate;
+var input_endDate;
 var httpReq;
 
 function pageload() {
@@ -11,7 +13,9 @@ function pageload() {
 			
 	btn_show_all.onclick = showAll;
   btn_show_by_type.addEventListener("click", showByType);
+  btn_show_by_time.addEventListener("click", showByTime);
 	setupSelectPaymentType();
+	setupDatePicker();
 }
 window.onload = pageload;
 
@@ -30,6 +34,19 @@ function setupSelectPaymentType() {
 	select_PaymentType.hidden = false;
 }
 
+function setupDatePicker() {
+	input_startDate = document.getElementById("id_start_date");
+	input_endDate = document.getElementById("id_end_date");
+
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+  var yyyy = today.getFullYear();
+
+	input_startDate.defaultValue = yyyy + "-0" + mm + "-" + dd;
+	input_endDate.defaultValue = yyyy + "-0" + mm + "-" + (dd + 1);
+}
+
 function showAll(event) {
 	var queryString = "tp" + "=" + select_PaymentType.value;
 	var url = TARGET_URL + "/" + SERVICE_RECORD;
@@ -38,6 +55,21 @@ function showAll(event) {
 
 function showByType(event) {
 	var queryString = "tp" + "=" + select_PaymentType.value;
+	var url = TARGET_URL + "/" + SERVICE_RECORD + "/" + "?" + queryString;
+	sendXhr("Get", url);
+}
+
+function showByTime(event) {
+	console.log(input_startDate);
+	console.log(input_endDate);
+
+	console.log("SD: " + input_startDate.value);
+	console.log("ED: " + input_endDate.value);
+
+	console.log("SD2: " + Date.parse(input_startDate.value));
+	console.log("ED2: " + Date.parse(input_endDate.value));
+
+	var queryString = "st_date" + "=" + Date.parse(input_startDate.value) + "&" + "ed_date" + "=" + Date.parse(input_endDate.value);
 	var url = TARGET_URL + "/" + SERVICE_RECORD + "/" + "?" + queryString;
 	sendXhr("Get", url);
 }

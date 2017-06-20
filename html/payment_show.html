@@ -22,13 +22,15 @@
   <section>
     <div class="container">
       <div class="title"><h3> Show Payment </h3></div>
-			  <input id="id_btn_show_all" type="button" value="Show all"/>
-			  <p>
-			  <input id="id_btn_show_by_type" type="button" value="Show by type"/>
-			  <select id="id_select_type" hidden="false">
-			  </select>
-			  <p>
-			<input id="id_btn_show_by_time" type="button" value="Show by time"/><p>
+			<input id="id_btn_show_all" type="button" value="Show all"/> <p>
+  
+			<input id="id_btn_show_by_type" type="button" value="Show by type"/>
+			<select id="id_select_type" hidden="false"></select> <p>
+				
+			<input id="id_btn_show_by_time" type="button" value="Show by time"/>
+			<label for="id_start_date">Start Date</label><input id="id_start_date" type="date" required> 
+			~ 
+			<label for="id_end_date">End Date</label> <input id="id_end_date" type="date" required> <p>
     </div>
 
 		<table class="result_table" id="id_result_table" hidden="true">
