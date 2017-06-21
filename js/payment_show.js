@@ -99,6 +99,8 @@ function setupResultTable(respJson) {
 
 	if (appendContent.length > 0) {
 		refreshPageContent(appendContent);
+	} else {
+		alert("No record");
 	}
 }
 
