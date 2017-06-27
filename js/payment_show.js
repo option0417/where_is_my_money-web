@@ -1,19 +1,13 @@
-var btn_show_all;
-var btn_show_by_type;
-var btn_show_by_time;
 var select_PaymentType;
 var input_startDate;
 var input_endDate;
-var httpReq;
 
 function pageload() {
-	btn_show_all = document.getElementById("id_btn_show_all");
-	btn_show_by_type = document.getElementById("id_btn_show_by_type");
-	btn_show_by_time = document.getElementById("id_btn_show_by_time");
-			
-	btn_show_all.onclick = showAll;
-  btn_show_by_type.addEventListener("click", showByType);
-  btn_show_by_time.addEventListener("click", showByTime);
+	document.getElementById("id_btn_show_all").addEventListener("click", showAll);
+	document.getElementById("id_btn_show_by_type").addEventListener("click", showByType);
+	document.getElementById("id_btn_show_by_date").addEventListener("click", showByDate);
+	document.getElementById("id_btn_show_by_type_and_time").addEventListener("click", showPaymentRecord);
+
 	setupSelectPaymentType();
 	setupDatePicker();
 }
@@ -48,7 +42,6 @@ function setupDatePicker() {
 }
 
 function showAll(event) {
-	var queryString = "tp" + "=" + select_PaymentType.value;
 	var url = TARGET_URL + "/" + SERVICE_RECORD;
 	sendXhr("Get", url);
 }
@@ -59,19 +52,36 @@ function showByType(event) {
 	sendXhr("Get", url);
 }
 
-function showByTime(event) {
-	console.log(input_startDate);
-	console.log(input_endDate);
-
-	console.log("SD: " + input_startDate.value);
-	console.log("ED: " + input_endDate.value);
-
-	console.log("SD2: " + Date.parse(input_startDate.value));
-	console.log("ED2: " + Date.parse(input_endDate.value));
-
+function showByDate(event) {
 	var queryString = "st_date" + "=" + Date.parse(input_startDate.value) + "&" + "ed_date" + "=" + Date.parse(input_endDate.value);
 	var url = TARGET_URL + "/" + SERVICE_RECORD + "/" + "?" + queryString;
 	sendXhr("Get", url);
+}
+
+function showPaymentRecord(event) {
+	var queryString = createQueryString();
+	var url = TARGET_URL + "/" + SERVICE_RECORD;;
+
+	if (queryString != null && queryString.length > 0) {
+		url += "/" + "?" + queryString;
+	}
+	sendXhr("Get",  url);
+}
+
+function createQueryString() {
+	var queryString = '';
+
+	if (select_PaymentType.value != null) {
+		queryString = "tp" + "=" + select_PaymentType.value;
+		queryString += "&";
+	}
+
+	if (input_startDate.value != null && input_endDate.value) {
+		queryString += "st_date" + "=" + Date.parse(input_startDate.value) + "&" + "ed_date" + "=" + Date.parse(input_endDate.value);
+	}
+
+	console.log("Q: " + queryString);
+	return queryString;
 }
 
 function sendXhr(method, url) {
