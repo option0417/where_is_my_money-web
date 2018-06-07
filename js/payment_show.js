@@ -58,11 +58,12 @@ function setPageContent(jsonObj) {
 	console.log(resultTable);
 	var content = 
 		'<tr>' + 
-		'<td>' + jsonObj.item_name + '</td>' +
+		'<td>' + jsonObj.payment_item + '</td>' +
 		'<td>' + jsonObj.payment_type + '</td>' +
-		'<td>' + jsonObj.item_price + '</td>' +
-		'<td>' + jsonObj.amount + '</td>' +
 		'<td>' + jsonObj.payment_cost + '</td>' +
+		'<td>' + jsonObj.payment_description + '</td>' +
+		'<td>' + jsonObj.create_time + '</td>' +
+		'<td>' + jsonObj.update_time + '</td>' +
 		'</tr>';
 
 	resultTable.getElementsByTagName('tbody')[0].innerHTML += content;

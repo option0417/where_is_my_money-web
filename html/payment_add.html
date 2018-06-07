@@ -25,13 +25,13 @@
       <form id="id_form_payment" action="http://192.168.100.101:3000/record" method="post">
       <table>
         <tr>
-          <td>Item Name</td>
-          <td><input type="text" name="item_name"></td>
+          <td>Payment Item</td>
+          <td><input type="text" name="payment_item"></td>
         </tr>
         <tr>
-          <td>Item Type</td>
+          <td>Payment Type</td>
   				<td>
-  					<select id="id_item_type" name="payment_type">
+  					<select id="id_payment_type" name="payment_type">
   						<option value="Eat" selected="true">Eat</option>
   						<option value="Life">Life</option>
   						<option value="Traffic">Traffic</option>
@@ -42,16 +42,12 @@
   				 </select>
         </tr>
         <tr>
-          <td>Item Price</td>
-          <td><input id="id_item_price" type="number" name="item_price" onchange="caculateTotalCost()"></td>
+          <td>Paymeny Cost</td>
+          <td><input id="id_payment_cost" type="number" name="payment_cost"></td>
         </tr>
         <tr>
-          <td>Amount</td>
-          <td><input id="id_amount" type="number" name="amount" onchange="caculateTotalCost()"></td>
-        </tr>
-        <tr>
-          <td>Total Cost</td>
-          <td><input id="id_total_cost" type="number" name="payment_cost" onfocus="caculateTotalCost()"></td>
+          <td>Paymeny description</td>
+          <td><input id="id_payment_description" type="text" name="payment_description"></td>
         </tr>
         <tr>
           <td><button type="submit" name="btn_add_submit">Submit</button></td>
