@@ -57,7 +57,8 @@ function setPageContent(jsonObj) {
 	resultTable = document.getElementById('id_result_table');
 	console.log(resultTable);
 	var content = 
-		'<tr>' + 
+		'<tr>' +
+    '<td style="display:none">' + jsonObj.payment_id + '</td>' + 
 		'<td>' + jsonObj.payment_item + '</td>' +
 		'<td>' + jsonObj.payment_type + '</td>' +
 		'<td>' + jsonObj.payment_cost + '</td>' +
