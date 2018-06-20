@@ -107,7 +107,6 @@ function setupResultTable(respJson) {
 		appendContent += createContent(jsonObj);
 	}
 
-	alert("No record");
 	if (appendContent.length > 0) {
 		refreshPageContent(appendContent);
 	} else {
@@ -118,11 +117,13 @@ function setupResultTable(respJson) {
 function createContent(jsonObj) {
 	var content = 
 		"<tr>" + 
-		"<td>" + jsonObj.item_name + "</td>" +
+		"<td hidden=true>" + jsonObj.payment_id + "</td>" +
+		"<td>" + jsonObj.payment_item + "</td>" +
 		"<td>" + PaymentType.getText(jsonObj.payment_type) + "</td>" +
-		"<td>" + jsonObj.item_price + "</td>" +
-		"<td>" + jsonObj.amount + "</td>" +
 		"<td>" + jsonObj.payment_cost + "</td>" +
+		"<td>" + jsonObj.payment_description + "</td>" +
+		"<td>" + jsonObj.payment_create_time + "</td>" +
+		"<td>" + jsonObj.payment_yodate_time + "</td>" +
 		"</tr>";
 	return content;
 }

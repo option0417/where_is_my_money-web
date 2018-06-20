@@ -1,4 +1,4 @@
-const TARGET_URL = "http://192.168.100.101:3000";
+const TARGET_URL = "http://10.0.3.179:3000";
 const SERVICE_RECORD = "record";
 
 PaymentType = {

@@ -23,28 +23,23 @@
     <div class="container">
       <div class="title"><h3> Add New Payment </h3></div>
       <!--form id="id_form_payment" action="http://192.168.100.101:3000/record" method="post"-->
-			<form id="id_form_payment">
+      <form id="id_form_payment">
       <table>
         <tr>
-          <td>Item Name</td>
-          <td><input type="text" name="item_name" required></td>
+          <td>Payment Item</td>
+          <td><input type="text" name="item_name" required/></td>
         </tr>
         <tr>
           <td>Payment Type</td>
-  				<td>
-  					<select id="id_payment_type" name="payment_type" required/>
+            <td><select id="id_payment_type" name="payment_type" required></td>
         </tr>
         <tr>
-          <td>Item Price</td>
-          <td><input id="id_item_price" type="number" name="item_price" min="1" required></td>
+          <td>Payment Cost</td>
+          <td><input id="id_payment_cost" type="number" name="payment_cost" min="0" required></td>
         </tr>
         <tr>
-          <td>Amount</td>
-          <td><input id="id_amount" type="number" name="amount" min="1" required></td>
-        </tr>
-        <tr>
-          <td>Total Cost</td>
-          <td><input id="id_total_cost" type="number" name="payment_cost" readonly></td>
+          <td>Payment Description</td>
+          <td><input id="id_payment_description" type="text" name="payment_description"></td>
         </tr>
         <tr>
           <td><button id="id_btn_submit" type="submit">Submit</button></td>
