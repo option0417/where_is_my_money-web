@@ -8,7 +8,7 @@
   <!-- Bootstrap core CSS -->
   <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
   <link rel="stylesheet" type="text/css" href="../css/payment.css">
-	<script type="text/javascript" charset="utf-8" src="../js/payment_add.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/payment_add.css">
 <head>
 <body>
   <nav class="nav-sidebar-menu">
@@ -22,35 +22,27 @@
   <section>
     <div class="container">
       <div class="title"><h3> Add New Payment </h3></div>
-      <form id="id_form_payment" action="http://192.168.100.101:3000/record" method="post">
+      <!--form id="id_form_payment" action="http://192.168.100.101:3000/record" method="post"-->
+      <form id="id_form_payment">
       <table>
         <tr>
           <td>Payment Item</td>
-          <td><input type="text" name="payment_item"></td>
+          <td><input type="text" name="item_name" required/></td>
         </tr>
         <tr>
           <td>Payment Type</td>
-  				<td>
-  					<select id="id_payment_type" name="payment_type">
-  						<option value="Eat" selected="true">Eat</option>
-  						<option value="Life">Life</option>
-  						<option value="Traffic">Traffic</option>
-  						<option value="Dress">Dress</option>
-  						<option value="Investment">Investment</option>
-  						<option value="Medical">Medical</option>
-  						<option value="Others">Others</option>
-  				 </select>
+            <td><select id="id_payment_type" name="payment_type" required></td>
         </tr>
         <tr>
-          <td>Paymeny Cost</td>
-          <td><input id="id_payment_cost" type="number" name="payment_cost"></td>
+          <td>Payment Cost</td>
+          <td><input id="id_payment_cost" type="number" name="payment_cost" min="0" required></td>
         </tr>
         <tr>
-          <td>Paymeny description</td>
+          <td>Payment Description</td>
           <td><input id="id_payment_description" type="text" name="payment_description"></td>
         </tr>
         <tr>
-          <td><button type="submit" name="btn_add_submit">Submit</button></td>
+          <td><button id="id_btn_submit" type="submit">Submit</button></td>
         </tr>
       </table>
       </form>
@@ -61,6 +53,7 @@
 		Author: W.D
 	</footer>
 
-
+	<script type="text/javascript" charset="utf-8" src="../js/payment_add.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/payment_common.js"></script>
 <body>
 </html>

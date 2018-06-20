@@ -8,7 +8,7 @@
   <!-- Bootstrap core CSS -->
   <!--link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"-->
   <link rel="stylesheet" type="text/css" href="../css/payment.css">
-  <link rel="stylesheet" type="text/css" href="../css/payment_show.css">
+	<link rel="stylesheet" type="text/css" href="../css/payment_show.css">
 <head>
 <body>
   <nav class="nav-sidebar-menu">
@@ -22,9 +22,17 @@
   <section>
     <div class="container">
       <div class="title"><h3> Show Payment </h3></div>
-			<input id="id_btn_show_all" type="button" value="Show all"/>
+			<input id="id_btn_show_all" type="button" value="Show all"/> <p>
+  
 			<input id="id_btn_show_by_type" type="button" value="Show by type"/>
-			<input id="id_btn_show_by_time" type="button" value="Show by time"/>
+			<select id="id_select_type" hidden="false"></select> <p>
+				
+			<input id="id_btn_show_by_date" type="button" value="Show by date"/>
+			<label for="id_start_date">Start Date</label><input id="id_start_date" type="date" required> 
+			~ 
+			<label for="id_end_date">End Date</label> <input id="id_end_date" type="date" required> <p>
+
+			<input id="id_btn_show_by_type_and_time" type="button" value="Show by type and date"/> <p>
     </div>
 
 		<table class="result_table" id="id_result_table" hidden="true">
@@ -47,5 +55,6 @@
 		Author: W.D
 	</footer>
 	<script type="text/javascript" charset="utf-8" src="../js/payment_show.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../js/payment_common.js"></script>
 <body>
 </html>
