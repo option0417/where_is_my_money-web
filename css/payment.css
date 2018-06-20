@@ -1,7 +1,16 @@
+.header-area {
+    top:0%;
+    left:0%;
+    height:25%;
+    width:100%;
+    position: fixed;
+    background-color: #FFF;
+}
+
 nav {
-    top: 0;
+    top: 25%;
     left: 0;
-    height: 95%;
+    height: 70%;
     width: 20%;
     position: fixed;
     z-index: 1;

@@ -107,6 +107,7 @@ function setupResultTable(respJson) {
 		appendContent += createContent(jsonObj);
 	}
 
+	alert("No record");
 	if (appendContent.length > 0) {
 		refreshPageContent(appendContent);
 	} else {
