@@ -42,8 +42,9 @@ function setupDatePicker() {
 }
 
 function showAll(event) {
-	var url = TARGET_URL + "/" + SERVICE_RECORD;
-	sendXhr("Get", url);
+	//var url = TARGET_URL + "/" + SERVICE_RECORD;
+	//sendXhr("Get", url);
+	sendXhr("Get", 'http://www.mocky.io/v2/5b2beebe3000007f00234857');
 }
 
 function showByType(event) {
