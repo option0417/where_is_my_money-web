@@ -44,7 +44,7 @@ function setupDatePicker() {
 function showAll(event) {
 	//var url = TARGET_URL + "/" + SERVICE_RECORD;
 	//sendXhr("Get", url);
-	sendXhr("Get", 'http://www.mocky.io/v2/5b2beebe3000007f00234857');
+	sendXhr("Get", 'http://www.mocky.io/v2/5b2e7f4b2f000057006a28e4');
 }
 
 function showByType(event) {
@@ -124,7 +124,7 @@ function createContent(jsonObj) {
 		"<td>" + jsonObj.payment_cost + "</td>" +
 		"<td>" + jsonObj.payment_description + "</td>" +
 		"<td>" + jsonObj.payment_create_time + "</td>" +
-		"<td>" + jsonObj.payment_yodate_time + "</td>" +
+		"<td>" + jsonObj.payment_update_time + "</td>" +
 		"</tr>";
 	return content;
 }
