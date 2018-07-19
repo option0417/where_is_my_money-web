@@ -1,29 +1,12 @@
 .result_table {
-  border: 2px solid black;
+  border: 2px solid #000000;
   border-radius: 10px;
-	width: 60%;
-	height: 50%;
-}
-
-thead {
-	display: block;
-	height: 10%;
-}
-
-tbody {
-	display: block;
-	height: 90%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-thead th {
-  letter-spacing: 1px;
-	text-align: left;
-	width: 150px;
 }
 
 tbody td {
-  letter-spacing: 1px;
-	width: 150px;
+  border-bottom: 1px solid #000000;
+}
+
+thead th:hover {
+  background-color: #33ffff;
 }
